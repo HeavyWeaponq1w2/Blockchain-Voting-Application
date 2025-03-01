@@ -13,6 +13,7 @@ const Voting = () => {
     try {
       const contract = await getContract();
       const result = await contract.registerVoter(voterID, name, aadharNumber);
+      await result.wait();
       console.log(result);
       navigator("/castVote");
     } catch (error) {
